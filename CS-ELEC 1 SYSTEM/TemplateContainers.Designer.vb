@@ -23,13 +23,36 @@ Partial Class TemplateContainers
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim Animation4 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
+        Dim Animation1 As Guna.UI2.AnimatorNS.Animation = New Guna.UI2.AnimatorNS.Animation()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(TemplateContainers))
-        Me.Guna2TileButton9 = New Guna.UI2.WinForms.Guna2TileButton()
         Me.Guna2Transition1 = New Guna.UI2.WinForms.Guna2Transition()
+        Me.Guna2TileButton9 = New Guna.UI2.WinForms.Guna2TileButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SuspendLayout()
+        '
+        'Guna2Transition1
+        '
+        Me.Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizBlind
+        Me.Guna2Transition1.Cursor = Nothing
+        Animation1.AnimateOnlyDifferences = True
+        Animation1.BlindCoeff = CType(resources.GetObject("Animation1.BlindCoeff"), System.Drawing.PointF)
+        Animation1.LeafCoeff = 0!
+        Animation1.MaxTime = 1.0!
+        Animation1.MinTime = 0!
+        Animation1.MosaicCoeff = CType(resources.GetObject("Animation1.MosaicCoeff"), System.Drawing.PointF)
+        Animation1.MosaicShift = CType(resources.GetObject("Animation1.MosaicShift"), System.Drawing.PointF)
+        Animation1.MosaicSize = 0
+        Animation1.Padding = New System.Windows.Forms.Padding(0)
+        Animation1.RotateCoeff = 0!
+        Animation1.RotateLimit = 0!
+        Animation1.ScaleCoeff = CType(resources.GetObject("Animation1.ScaleCoeff"), System.Drawing.PointF)
+        Animation1.SlideCoeff = CType(resources.GetObject("Animation1.SlideCoeff"), System.Drawing.PointF)
+        Animation1.TimeCoeff = 0!
+        Animation1.TransparencyCoeff = 0!
+        Me.Guna2Transition1.DefaultAnimation = Animation1
+        Me.Guna2Transition1.Interval = 15
+        Me.Guna2Transition1.MaxAnimationTime = 300
+        Me.Guna2Transition1.TimeStep = 0.03!
         '
         'Guna2TileButton9
         '
@@ -39,7 +62,7 @@ Partial Class TemplateContainers
         Me.Guna2TileButton9.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.Guna2TileButton9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.Guna2TileButton9.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2TileButton9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2TileButton9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.Guna2TileButton9.ForeColor = System.Drawing.Color.Black
         Me.Guna2TileButton9.Image = CType(resources.GetObject("Guna2TileButton9.Image"), System.Drawing.Image)
         Me.Guna2TileButton9.ImageOffset = New System.Drawing.Point(0, 25)
@@ -51,48 +74,15 @@ Partial Class TemplateContainers
         Me.Guna2TileButton9.Text = "Frappucino Assasino Frapuccino WasWasino Pramunino"
         Me.Guna2TileButton9.TextOffset = New System.Drawing.Point(0, 5)
         '
-        'Guna2Transition1
-        '
-        Me.Guna2Transition1.AnimationType = Guna.UI2.AnimatorNS.AnimationType.HorizBlind
-        Me.Guna2Transition1.Cursor = Nothing
-        Animation4.AnimateOnlyDifferences = True
-        Animation4.BlindCoeff = CType(resources.GetObject("Animation4.BlindCoeff"), System.Drawing.PointF)
-        Animation4.LeafCoeff = 0!
-        Animation4.MaxTime = 1.0!
-        Animation4.MinTime = 0!
-        Animation4.MosaicCoeff = CType(resources.GetObject("Animation4.MosaicCoeff"), System.Drawing.PointF)
-        Animation4.MosaicShift = CType(resources.GetObject("Animation4.MosaicShift"), System.Drawing.PointF)
-        Animation4.MosaicSize = 0
-        Animation4.Padding = New System.Windows.Forms.Padding(0)
-        Animation4.RotateCoeff = 0!
-        Animation4.RotateLimit = 0!
-        Animation4.ScaleCoeff = CType(resources.GetObject("Animation4.ScaleCoeff"), System.Drawing.PointF)
-        Animation4.SlideCoeff = CType(resources.GetObject("Animation4.SlideCoeff"), System.Drawing.PointF)
-        Animation4.TimeCoeff = 0!
-        Animation4.TransparencyCoeff = 0!
-        Me.Guna2Transition1.DefaultAnimation = Animation4
-        Me.Guna2Transition1.Interval = 15
-        Me.Guna2Transition1.MaxAnimationTime = 300
-        Me.Guna2Transition1.TimeStep = 0.03!
-        '
         'Timer1
         '
         Me.Timer1.Interval = 10
-        '
-        'Panel1
-        '
-        Me.Guna2Transition1.SetDecoration(Me.Panel1, Guna.UI2.AnimatorNS.DecorationType.None)
-        Me.Panel1.Location = New System.Drawing.Point(820, 113)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(126, 132)
-        Me.Panel1.TabIndex = 2
         '
         'TemplateContainers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1266, 592)
-        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Guna2TileButton9)
         Me.Guna2Transition1.SetDecoration(Me, Guna.UI2.AnimatorNS.DecorationType.None)
         Me.Name = "TemplateContainers"
@@ -104,5 +94,4 @@ Partial Class TemplateContainers
     Friend WithEvents Guna2TileButton9 As Guna.UI2.WinForms.Guna2TileButton
     Friend WithEvents Guna2Transition1 As Guna.UI2.WinForms.Guna2Transition
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents Panel1 As Panel
 End Class

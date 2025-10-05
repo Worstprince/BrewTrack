@@ -48,25 +48,34 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.5.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
+    <Reference Include="Google.Protobuf, Version=3.14.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604" />
     <Reference Include="Guna.Charts.WinForms, Version=1.1.0.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.Charts.WinForms.1.1.0\lib\net472\Guna.Charts.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d" />
+    <Reference Include="MySql.Data, Version=8.0.26.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -82,18 +91,55 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Functions.vb" />
-    <Compile Include="MainMenu.vb">
+    <Compile Include="Forms\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.vb">
+    <Compile Include="Forms\ManagerDashboard.Designer.vb">
+      <DependentUpon>ManagerDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ManagerDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MenuItemDetails.Designer.vb">
+      <DependentUpon>MenuItemDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MenuItemDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SubForms\ManagerDashboardCashiers.Designer.vb">
+      <DependentUpon>ManagerDashboardCashiers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubForms\ManagerDashboardCashiers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SubForms\ManagerDashboardItems.Designer.vb">
+      <DependentUpon>ManagerDashboardItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubForms\ManagerDashboardItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Functions.vb" />
+    <Compile Include="Forms\MainMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainMenu.Designer.vb">
       <DependentUpon>MainMenu.vb</DependentUpon>
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomControls\MenuItemCard.Designer.vb">
+      <DependentUpon>MenuItemCard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\MenuItemCard.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -105,6 +151,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="CustomControls\OrderCardItem.Designer.vb">
+      <DependentUpon>OrderCardItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\OrderCardItem.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="TemplateContainers.Designer.vb">
       <DependentUpon>TemplateContainers.vb</DependentUpon>
     </Compile>
@@ -113,14 +165,35 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\MenuItemCard.resx">
+      <DependentUpon>MenuItemCard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ManagerDashboard.resx">
+      <DependentUpon>ManagerDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MenuItemDetails.resx">
+      <DependentUpon>MenuItemDetails.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubForms\ManagerDashboardCashiers.resx">
+      <DependentUpon>ManagerDashboardCashiers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubForms\ManagerDashboardItems.resx">
+      <DependentUpon>ManagerDashboardItems.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\OrderCardItem.resx">
+      <DependentUpon>OrderCardItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TemplateContainers.resx">
       <DependentUpon>TemplateContainers.vb</DependentUpon>
@@ -138,6 +211,39 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sample_picture.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coffee-ice-cream-frappe-frappuccino-feat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-edit-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minus-30-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-30-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minus-30-new-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-30-new-default.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\starbucks-iced-matcha-latte-8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
