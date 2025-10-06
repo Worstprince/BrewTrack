@@ -1,27 +1,88 @@
 ﻿Public Class MainMenu
     Dim OrderedItemsList As New List(Of OrderedItem)
+    Public counter As Integer = 1
+    Private Sub UpdateTotalOrderPrice()
+        Dim FinalTotalPrice As Decimal = 0
+        For Each ord In OrderedItemsList
+            FinalTotalPrice += ord.TotalPrice
+        Next
+        TotalOrderPrice.Text = "$" + FinalTotalPrice.ToString()
+    End Sub
+    Private Sub RefreshOrderUI()
+        FlowLayoutPanel2.Controls.Clear()
+        For Each ord In OrderedItemsList
+            Dim itemcard As New OrderCardItem()
+            itemcard.OrderID = ord.OrderID
+            itemcard.ItemName = ord.Name
+            itemcard.SubCategory = ord.Subcategory
+            itemcard.OrderSize = ord.Size
+            itemcard.Sugar = ord.SugarLevel
+            itemcard.TotalPrice = ord.TotalPrice
+            itemcard.Quantity = ord.Quantity
 
-    Private Function ItemAlreadyExists(card As MenuItemCard) As Boolean
-        If OrderedItemsList.Any(Function(o) o.ItemID = card.ItemID) Then
-            Return True
-        Else
-            Return False
+            AddHandler itemcard.QuantityChanged, AddressOf Card_QuantityChanged
+            AddHandler itemcard.EditClicked, AddressOf Card_EditClicked
+            AddHandler itemcard.DeleteClicked, AddressOf Card_DeleteClicked
+
+            UpdateTotalOrderPrice()
+            FlowLayoutPanel2.Controls.Add(itemcard)
+        Next
+    End Sub
+    Private Sub Card_QuantityChanged(ItemCard As OrderCardItem, newQty As Integer)
+        'find matching ordereditem in list (use orderid Or unique key)
+        Dim ord = OrderedItemsList.Find(Function(o) o.OrderID = ItemCard.OrderID)
+        If ord IsNot Nothing Then
+            ord.Quantity = newQty
+            ord.TotalPrice = ord.Quantity * ord.Price
+            MsgBox(ord.Name + " " + ord.TotalPrice.ToString() + " " + ord.Quantity.ToString())
+            RefreshOrderUI()
+            'updatetotalsui() ' update cart totals / subtotal / tax / etc.
         End If
+    End Sub
+    Private Sub Card_EditClicked(ItemCard As OrderCardItem)
+        ' Open MenuItemDetails to edit options; pass order item. When done, update object then RefreshOrderUI().
+        Dim ord = OrderedItemsList.Find(Function(o) o.OrderID = ItemCard.OrderID)
+        If ord IsNot Nothing Then
+            Dim card As New MenuItemCard()
+            card.ItemName = ord.Name
 
-    End Function
+
+            Dim detailsform As New MenuItemDetails(card)
+            detailsform.EditMode = True
+            detailsform.selectedSize = ord.Size
+            detailsform.selectedSugarLevel = ord.SugarLevel
+            detailsform.Quantity = ord.Quantity
+            detailsform.ItemNotes = ord.Notes
+            detailsform.ShowDialog()
+
+            If detailsform.DialogResult = DialogResult.OK Then
+                ord.Size = detailsform.selectedSize
+                ord.SugarLevel = detailsform.selectedSugarLevel
+                ord.Quantity = detailsform.Quantity
+                ord.Notes = detailsform.ItemNotes
+                MsgBox(ord.Size + " " + ord.SugarLevel + " " + ord.Quantity.ToString() + " " + ord.Notes)
+                RefreshOrderUI()
+            End If
+        End If
+    End Sub
+    Private Sub Card_DeleteClicked(ItemCard As OrderCardItem)
+        Dim ord = OrderedItemsList.Find(Function(o) o.OrderID = ItemCard.OrderID)
+        If ord IsNot Nothing Then
+            OrderedItemsList.Remove(ord)
+            RefreshOrderUI()
+        End If
+    End Sub
 
     Public Sub AddToCart(card As MenuItemCard)
         Dim detailsform As New MenuItemDetails(card)
-
-
-
-
-
         detailsform.ShowDialog()
 
         If detailsform.DialogResult = DialogResult.OK Then
             Dim item As New OrderedItem With {
+                .OrderID = counter,
                 .Name = card.ItemName,
+                .Category = card.Category,
+                .Subcategory = card.SubCategory,
                 .Size = detailsform.selectedSize,
                 .Price = card.Price,
                 .SugarLevel = detailsform.selectedSugarLevel,
@@ -29,31 +90,22 @@
                 .Notes = detailsform.ItemNotes
             }
             item.TotalPrice = item.Price * item.Quantity
+            counter += 1
             OrderedItemsList.Add(item)
-            GenerateOrderedItemCard(item)
+            RefreshOrderUI()
 
         End If
 
-        'Dim item As New OrderCardItem()
-        'item.ItemName = card.ItemName
-        'item.ItemPrice = card.Price
-        'item.TotalPrice = "$320.00"
-        'item.Quantity = "5"
-
-
-
-        'FlowLayoutPanel2.Controls.Add(item)
     End Sub
 
-    Private Sub GenerateOrderedItemCard(item As OrderedItem)
-        Dim ItemOrder As New OrderCardItem()
-        ItemOrder.ItemName = item.Name
-        ItemOrder.ItemPrice = "$" & item.Price.ToString()
-        ItemOrder.TotalPrice = "$" & item.TotalPrice.ToString()
-        ItemOrder.Quantity = item.Quantity.ToString()
-        FlowLayoutPanel2.Controls.Add(ItemOrder)
+    'Private Sub GenerateOrderedItemCard(item As OrderedItem)
+    '    Dim ItemOrder As New OrderCardItem()
+    '    ItemOrder.ItemName = item.Name
+    '    ItemOrder.TotalPrice = "$" & item.TotalPrice.ToString()
+    '    ItemOrder.Quantity = item.Quantity.ToString()
+    '    FlowLayoutPanel2.Controls.Add(ItemOrder)
 
-    End Sub
+    'End Sub
     Private Sub GenerateItemCards()
         Dim ItemRepo As New ItemRepository()
         Dim ItemDetailsList As List(Of ItemDetails) = ItemRepo.GetItems()
@@ -62,7 +114,8 @@
             Dim ItemCard As New MenuItemCard()
             ItemCard.ItemID = item.ItemID
             ItemCard.ItemName = item.Name
-            ItemCard.Price = "$" & item.Price.ToString()
+            ItemCard.Price = item.Price
+            ItemCard.Category = item.Category
             ItemCard.SubCategory = item.SubCategory
             ItemCard.ItemImage = Image.FromFile(Application.StartupPath & item.ImagePath)
             ItemCard.Margin = New Padding(0, 15, 13, 15)

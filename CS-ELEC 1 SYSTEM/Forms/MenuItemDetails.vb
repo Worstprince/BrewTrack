@@ -3,6 +3,8 @@
     Public Property selectedSugarLevel As String
     Public Property Quantity As Integer
     Public Property ItemNotes As String
+
+    Public EditMode As Boolean
     Public Sub New(card As MenuItemCard)
 
         ' This call is required by the designer.
@@ -20,15 +22,40 @@
             Return False
         End If
     End Function
+    Private Sub SetButtonStates()
+        ' --- Size selection ---
+        Select Case selectedSize
+            Case "Small" : Small.Checked = True
+            Case "Medium" : Medium.Checked = True
+            Case "Large" : Large.Checked = True
+            Case "Extra Large" : ExtraLarge.Checked = True
+        End Select
+
+        ' --- Sugar Level selection ---
+        Select Case selectedSugarLevel
+            Case "0%" : Zero.Checked = True
+            Case "25%" : TwentyFive.Checked = True
+            Case "50%" : Fifty.Checked = True
+            Case "75%" : SeventyFive.Checked = True
+            Case "100%" : OneHundred.Checked = True
+        End Select
+    End Sub
     Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
         Me.Close()
     End Sub
     Private Sub AddToCart_Click(sender As Object, e As EventArgs) Handles AddToCart.Click
+
         ItemNotes = Notes.Text
         Me.DialogResult = DialogResult.OK
         Me.Close()
     End Sub
-    Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs)
+    Private Sub MenuItemDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If EditMode = True Then
+            Call SetButtonStates()
+            QuantityLabel.Text = Quantity
+            Notes.Text = ItemNotes
+            AddToCart.Enabled = CheckOrderCompletion()
+        End If
         Label1.Left = (Guna2Panel1.Width - Label1.Width) \ 2
     End Sub
 
@@ -129,8 +156,6 @@
         selectedSugarLevel = "100%"
         AddToCart.Enabled = CheckOrderCompletion()
     End Sub
-
-
 
 
 End Class

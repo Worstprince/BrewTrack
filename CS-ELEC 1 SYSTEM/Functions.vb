@@ -33,9 +33,12 @@ Module Functions
     End Class
 
     Public Class OrderedItem
-        Public Property ItemID As Integer
+        Public Property OrderID As Integer
         Public Property Name As String
+        Public Property Category As String
+        Public Property Subcategory As String
         Public Property Size As String
+
         Public Property SugarLevel As String
         Public Property Price As Decimal
         Public Property Quantity As Integer

@@ -14,7 +14,7 @@
             Return Label2.Text
         End Get
         Set(value As Decimal)
-            Label2.Text = value.ToString()
+            Label2.Text = "$" & value
         End Set
     End Property
 
@@ -34,12 +34,13 @@
             Label4.Text = value
         End Set
     End Property
+    Public Property Category As String
 
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         RaiseEvent AddMe(Me)
     End Sub
-    Public Event AddMe(sender As MenuItemCard)
 
+    Public Event AddMe(sender As MenuItemCard)
 
 End Class

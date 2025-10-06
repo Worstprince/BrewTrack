@@ -40,7 +40,7 @@ Partial Class MainMenu
         Me.SecondaryContainer = New System.Windows.Forms.Panel()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Button4 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TotalOrderPrice = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ProfileInfoPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -276,7 +276,7 @@ Partial Class MainMenu
         '
         Me.Guna2Panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(178, Byte), Integer))
         Me.Guna2Panel2.Controls.Add(Me.Guna2Button4)
-        Me.Guna2Panel2.Controls.Add(Me.Label7)
+        Me.Guna2Panel2.Controls.Add(Me.TotalOrderPrice)
         Me.Guna2Panel2.Controls.Add(Me.Label6)
         Me.Guna2Transition1.SetDecoration(Me.Guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None)
         Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -303,16 +303,16 @@ Partial Class MainMenu
         Me.Guna2Button4.TabIndex = 2
         Me.Guna2Button4.Text = "Place Order"
         '
-        'Label7
+        'TotalOrderPrice
         '
-        Me.Label7.AutoSize = True
-        Me.Guna2Transition1.SetDecoration(Me.Label7, Guna.UI2.AnimatorNS.DecorationType.None)
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(70, 1)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(78, 25)
-        Me.Label7.TabIndex = 1
-        Me.Label7.Text = "$60.00"
+        Me.TotalOrderPrice.AutoSize = True
+        Me.Guna2Transition1.SetDecoration(Me.TotalOrderPrice, Guna.UI2.AnimatorNS.DecorationType.None)
+        Me.TotalOrderPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TotalOrderPrice.Location = New System.Drawing.Point(70, 1)
+        Me.TotalOrderPrice.Name = "TotalOrderPrice"
+        Me.TotalOrderPrice.Size = New System.Drawing.Size(78, 25)
+        Me.TotalOrderPrice.TabIndex = 1
+        Me.TotalOrderPrice.Text = "$60.00"
         '
         'Label6
         '
@@ -477,6 +477,6 @@ Partial Class MainMenu
     Friend WithEvents Label5 As Label
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Button4 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Label7 As Label
+    Friend WithEvents TotalOrderPrice As Label
     Friend WithEvents Label6 As Label
 End Class

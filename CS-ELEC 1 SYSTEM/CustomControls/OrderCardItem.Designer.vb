@@ -23,40 +23,35 @@ Partial Class OrderCardItem
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.item_name = New System.Windows.Forms.Label()
-        Me.item_price = New System.Windows.Forms.Label()
         Me.item_quantity = New System.Windows.Forms.Label()
         Me.total_price = New System.Windows.Forms.Label()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2CircleButton1 = New Guna.UI2.WinForms.Guna2CircleButton()
         Me.Guna2CircleButton2 = New Guna.UI2.WinForms.Guna2CircleButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'item_name
         '
         Me.item_name.AutoSize = True
         Me.item_name.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.item_name.Location = New System.Drawing.Point(3, 20)
+        Me.item_name.Location = New System.Drawing.Point(102, 0)
         Me.item_name.Name = "item_name"
         Me.item_name.Size = New System.Drawing.Size(115, 25)
         Me.item_name.TabIndex = 0
         Me.item_name.Text = "Item Name"
         '
-        'item_price
-        '
-        Me.item_price.AutoSize = True
-        Me.item_price.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.item_price.Location = New System.Drawing.Point(135, 25)
-        Me.item_price.Name = "item_price"
-        Me.item_price.Size = New System.Drawing.Size(49, 20)
-        Me.item_price.TabIndex = 1
-        Me.item_price.Text = "$5.00"
-        '
         'item_quantity
         '
         Me.item_quantity.AutoSize = True
         Me.item_quantity.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.item_quantity.Location = New System.Drawing.Point(44, 70)
+        Me.item_quantity.Location = New System.Drawing.Point(146, 123)
         Me.item_quantity.Name = "item_quantity"
         Me.item_quantity.Size = New System.Drawing.Size(23, 25)
         Me.item_quantity.TabIndex = 3
@@ -66,7 +61,7 @@ Partial Class OrderCardItem
         '
         Me.total_price.AutoSize = True
         Me.total_price.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.total_price.Location = New System.Drawing.Point(218, 72)
+        Me.total_price.Location = New System.Drawing.Point(235, 125)
         Me.total_price.Name = "total_price"
         Me.total_price.Size = New System.Drawing.Size(82, 24)
         Me.total_price.TabIndex = 0
@@ -84,7 +79,7 @@ Partial Class OrderCardItem
         Me.Guna2Button2.FillColor = System.Drawing.Color.Transparent
         Me.Guna2Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button2.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button2.Location = New System.Drawing.Point(267, 15)
+        Me.Guna2Button2.Location = New System.Drawing.Point(41, 119)
         Me.Guna2Button2.Name = "Guna2Button2"
         Me.Guna2Button2.Size = New System.Drawing.Size(50, 30)
         Me.Guna2Button2.TabIndex = 2
@@ -102,7 +97,7 @@ Partial Class OrderCardItem
         Me.Guna2Button1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(211, 15)
+        Me.Guna2Button1.Location = New System.Drawing.Point(-2, 119)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(50, 30)
         Me.Guna2Button1.TabIndex = 2
@@ -120,7 +115,7 @@ Partial Class OrderCardItem
         Me.Guna2CircleButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2CircleButton1.ForeColor = System.Drawing.Color.White
         Me.Guna2CircleButton1.ImageSize = New System.Drawing.Size(30, 30)
-        Me.Guna2CircleButton1.Location = New System.Drawing.Point(8, 67)
+        Me.Guna2CircleButton1.Location = New System.Drawing.Point(110, 118)
         Me.Guna2CircleButton1.Name = "Guna2CircleButton1"
         Me.Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CircleButton1.Size = New System.Drawing.Size(30, 30)
@@ -138,37 +133,106 @@ Partial Class OrderCardItem
         Me.Guna2CircleButton2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2CircleButton2.ForeColor = System.Drawing.Color.White
         Me.Guna2CircleButton2.ImageSize = New System.Drawing.Size(30, 30)
-        Me.Guna2CircleButton2.Location = New System.Drawing.Point(73, 67)
+        Me.Guna2CircleButton2.Location = New System.Drawing.Point(175, 118)
         Me.Guna2CircleButton2.Name = "Guna2CircleButton2"
         Me.Guna2CircleButton2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CircleButton2.Size = New System.Drawing.Size(30, 30)
         Me.Guna2CircleButton2.TabIndex = 5
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(95, 34)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(129, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "SubCategoryName"
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.FillColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.Guna2Separator1.FillThickness = 3
+        Me.Guna2Separator1.Location = New System.Drawing.Point(0, 57)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(320, 10)
+        Me.Guna2Separator1.TabIndex = 6
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(4, 70)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(44, 23)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "Size:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(54, 70)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(74, 23)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Medium"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(205, 70)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(59, 23)
+        Me.Label4.TabIndex = 0
+        Me.Label4.Text = "Sugar:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(264, 70)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(49, 23)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "100%"
+        '
         'OrderCardItem
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(237, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(212, Byte), Integer))
+        Me.Controls.Add(Me.Guna2Separator1)
         Me.Controls.Add(Me.Guna2CircleButton2)
         Me.Controls.Add(Me.Guna2CircleButton1)
         Me.Controls.Add(Me.item_quantity)
         Me.Controls.Add(Me.Guna2Button2)
         Me.Controls.Add(Me.Guna2Button1)
-        Me.Controls.Add(Me.item_price)
         Me.Controls.Add(Me.total_price)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.item_name)
         Me.Name = "OrderCardItem"
-        Me.Size = New System.Drawing.Size(320, 100)
+        Me.Size = New System.Drawing.Size(320, 154)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents item_name As Label
-    Friend WithEvents item_price As Label
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents item_quantity As Label
     Friend WithEvents total_price As Label
     Friend WithEvents Guna2CircleButton1 As Guna.UI2.WinForms.Guna2CircleButton
     Friend WithEvents Guna2CircleButton2 As Guna.UI2.WinForms.Guna2CircleButton
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class
